@@ -34,23 +34,39 @@ class SuratKeluarController extends Controller
         }
     }
     public function getLastNoAgenda(Request $request){
+        $year = date("Y");
         try{
-            $year = date("Y");
 
+            $no = 0;
+            $tahun = 0;
             $suratKeluar = SuratKeluar::where('TAHUN_AGENDA',  $year)->orderBy('NOMOR_AGENDA','desc')->first();
-
+            if( $suratKeluar->NOMOR_AGENDA == null)
+            {
+                $no = 0;
+            }else{
+                $no = $suratKeluar->NOMOR_AGENDA ;
+            }
+            if($suratKeluar->TAHUN_AGENDA == null)
+            {
+                $tahun = $year;
+            }else{
+                $tahun = $suratKeluar->TAHUN_AGENDA;
+            }
             $respon = [
                 'Msg'=> 'success',
-                'tahun'=> $suratKeluar->TAHUN_AGENDA,
-                'no'=>$suratKeluar->NOMOR_AGENDA
+                'tahun'=> $tahun,
+                'no'=>$no
             ];
             return response()->json($respon,200);
         }
         catch(\Exception $x){
+            $content = [
+                'TAHUN' => $year,
+                'NOMOR_URUT'=>0
+            ];
             $respon = [
                 'Msg'=> 'error',
-                'tahun'=> null,
-                'no'=>null
+                'content'=> $content,
             ];
             return response()->json($respon);
         }

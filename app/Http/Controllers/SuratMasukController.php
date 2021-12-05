@@ -54,7 +54,7 @@ class SuratMasukController extends Controller
         $date = now()->toDateTimeString();
         $data = [
             'WAKTU' => $date,
-            'DESKRIPSI' => "Surat Masuk dengan nomor: ". $request->nomor_surat. " dikirim oleh" . $request->nama_pengirim. " telah di catat"
+            'DESKRIPSI' => "Surat Masuk dengan nomor: ". $request->nomor_surat. " dikirim oleh " . $request->nama_pengirim. " telah di catat"
         ];
         $log = Log::create($data);
         if(!$suratMasuk){
@@ -91,13 +91,6 @@ class SuratMasukController extends Controller
         //revisi
        try{
         $suratMasuk = SuratMasuk::where('ID_PENCATATAN', $id);
-        $temp = $suratMasuk->NOMOR_SURAT;
-        $date = now()->toDateTimeString();
-        $data = [
-            'WAKTU' => $date,
-            'DESKRIPSI' => "Surat Masuk dengan nomor: ". $temp. " dikirim oleh" . " telah di hapus"
-        ];
-        $log = Log::create($data);
         $suratMasuk->delete();
           try{
             $tujuanSurat = TujuanPencatatan::where('ID_PENCATATAN', $id);
@@ -109,8 +102,7 @@ class SuratMasukController extends Controller
                 }
                     try{
                         $pencatatan= Pencatatan::where('ID_PENCATATAN', $id);
-
-                        $result =  $pencatatan->delete();
+                        $pencatatan->delete();
                         $respon = [
                             'Msg' => 'success',
                             'content' => $id,
@@ -119,7 +111,7 @@ class SuratMasukController extends Controller
                     }
                     catch(\Exception $ex){
                         $respon = [
-                            'Msg' => 'error',
+                            'Msg' => 'error hapus pencatatan',
                             'content' => $id,
                             ];
                             return response()->json($respon);
@@ -136,27 +128,27 @@ class SuratMasukController extends Controller
                 }
                 catch(\Exception $ex){
                     $respon = [
-                        'Msg' => 'error',
+                        'Msg' => 'error hapus pencatatan',
                         'content' => $id,
                         ];
                         return response()->json($respon);
                 }
                 $respon = [
-                    'Msg' => 'error',
+                    'Msg' => 'error hapus pengingat',
                     'content' => $id,
                     ];
                     return response()->json($respon);
             }
             }catch(\Exception $ex){
             $respon = [
-                'Msg' => 'error',
+                'Msg' => 'error hapus tujuan ',
                 'content' => $id,
                 ];
                 return response()->json($respon);
         }
         } catch(\Exception $ex){
         $respon = [
-            'Msg' => 'error',
+            'Msg' => 'error hapus surat masuk',
             'content' => $id,
             ];
             return response()->json($respon);

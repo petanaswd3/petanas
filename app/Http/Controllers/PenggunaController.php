@@ -94,7 +94,6 @@ class PenggunaController extends Controller
 
         ];
         return response()->json($result);
-
     }
     public function editUser(Request $request){
         $user = Pengguna::where('ID_PENGGUNA',$request->id)->get();
@@ -153,12 +152,11 @@ class PenggunaController extends Controller
             ];
             return response()->json($userAuth,400);
         }
-        $userAuth->delete();
+        //$userAuth->delete();
         $user = Pengguna::where('ID_PENGGUNA', $id)
         ->update([
             'IS_DELETE' => true
         ]);
-        $user->delete();
         if(!$user){
             $respon = [
                 'msg' => 'delete failed',

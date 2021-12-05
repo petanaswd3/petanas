@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
 use App\Models\Pengingat;
+use Illuminate\Support\Facades\DB;
 
 class PengingatController extends Controller
 {
@@ -23,6 +24,7 @@ class PengingatController extends Controller
             'WAKTU_PENGINGAT' => $request->WAKTU_PENGINGAT,
             'DESKRIPSI' => $request->DESKRIPSI,
             'STATUS' => $request->STATUS,
+            'JENIS_PENGINGAT' => $request->JENIS_PENGINGAT,
         ];
         $pengingat = Pengingat::create($data);
         if(!$pengingat){
@@ -67,6 +69,40 @@ class PengingatController extends Controller
         }
         return response()->json($pengingat,200);
     }
+    public function getAllPengingatSuratMasuk()
+    {
+        //$pengingat = Pengingat::all();
+        $result = DB::table('pengingat')
+        ->join('surat_masuk','surat_masuk.ID_PENCATATAN','=','pengingat.ID_PENCATATAN')
+        ->select('pengingat.*', 'surat_masuk.NOMOR_SURAT')
+        ->orderBy('WAKTU_PENGINGAT','ASC')
+        ->get();
+        if(!$result){
+            $respon =[
+                'Msg' => 'Tidak ada pengingat',
+                'error' => 'Pengingat'
+            ];
+            return response()->json($respon);
+        }
+        return response()->json($result,200);
+    }
+    public function getAllPengingatSuratKeluar()
+    {
+        //$pengingat = Pengingat::all();
+        $result = DB::table('pengingat')
+        ->join('surat_keluar','surat_keluar.ID_PENCATATAN','=','pengingat.ID_PENCATATAN')
+        ->select('pengingat.*', 'surat_keluar.NOMOR_SURAT')
+        ->orderBy('WAKTU_PENGINGAT','ASC')
+        ->get();
+        if(!$result){
+            $respon =[
+                'Msg' => 'Tidak ada pengingat',
+                'error' => 'Pengingat'
+            ];
+            return response()->json($respon);
+        }
+        return response()->json($result,200);
+    }
     public function updatePengingat(Request $request)
     {
         $pengingat = Pengingat::where('ID_PENCATATAN',$request->ID_PENCATATAN)
@@ -77,6 +113,7 @@ class PengingatController extends Controller
             'WAKTU_PENGINGAT' => $request->WAKTU_PENGINGAT,
             'DESKRIPSI' => $request->DESKRIPSI,
             'STATUS' => $request->STATUS,
+            'JENIS_PENGINGAT' => $request->JENIS_PENGINGAT,
         ]);
         if(!$pengingat){
             $respon = [
@@ -108,7 +145,7 @@ class PengingatController extends Controller
         //         'error' => 'delete pengingat'
         //     ];
         //     return response()->json($respon);
-        // }      
+        // }
         // return response()->json($pengingat);
         $pengingat = Pengingat::where('ID_PENGINGAT',$id);
         $p = $pengingat->get();
@@ -125,7 +162,7 @@ class PengingatController extends Controller
                 'Msg' => 'success',
                 'content' => $id,
                 ];
-                return response()->json($respon,200); 
+                return response()->json($respon,200);
         }
         else{
             $respon = [

@@ -164,6 +164,18 @@ class NomorSuratKeluarController extends Controller
 
         try{
             $last = NomorSuratKeluar::where('TAHUN',  $year)->orderBy('NOMOR_URUT','desc')->first();
+            if ($last == null)
+            {
+                $content = [
+                    'TAHUN' => $year,
+                    'NOMOR_URUT'=>0
+                ];
+                $respon = [
+                    'Msg' => 'success 1',
+                    'content' => $content,
+                    ];
+                    return response()->json($respon);
+            }
             $respon = [
                 'Msg' => 'success',
                 'content' => $last,
@@ -186,7 +198,7 @@ class NomorSuratKeluarController extends Controller
                 'Msg' => 'succes',
                 'content'=> $del
             ];
-            return response()->json($respon,200);            
+            return response()->json($respon,200);
         }
         $respon=[
             'Msg'=> 'error',

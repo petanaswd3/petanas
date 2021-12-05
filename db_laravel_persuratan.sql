@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Okt 2021 pada 12.20
+-- Waktu pembuatan: 05 Des 2021 pada 09.17
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -66,8 +66,11 @@ CREATE TABLE `disposisi` (
 --
 
 INSERT INTO `disposisi` (`ID_DISPOSISI`, `ID_PENGGUNA`, `ID_PENCATATAN`, `TANGGAL_DISPOSISI`, `NAMA_FILE_DISPOSISI`, `PROSES_SELANJUTNYA`, `INFORMASI`, `NOMOR_AGENDA`, `JENIS_DISPOSISI`, `KOMENTAR_DISPOSISI`) VALUES
-(1, 2, 1254, '2021-10-15', 'asd_disposisi', 'qwert', 'qwert', '2', '1', 'a'),
-(2, 2, 1244, '2021-10-15', 'B_6_PL.1_KM.00.01_2021_disposisi', 'qwert', 'qwert', '6', '2', 'a');
+(7, 9, 1296, '2021-11-24', 'B_1_PL1.R3_KM.00.01_2021_disposisi', 'asdasd', 'asdasd', '1', '2', 'sip'),
+(15, 11, 1303, '2021-12-05', '_disposisi', 'asd', 'asd', '3', '1', NULL),
+(16, 11, 1302, '2021-12-05', 'B/4220/PL1/KM.11.00/2021_disposisi', 'asd', 'asd', '2', '1', NULL),
+(18, 11, 1304, '2021-12-05', NULL, 'Mengirim konfirmasi kehadiran', 'Revisi tanggal undangan', '4', '1', NULL),
+(19, 11, 1301, '2021-12-05', 'B_2_PL1.R3_KM.00.01_2021_disposisi', 'asd', 'asd', '2', '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -389,7 +392,11 @@ INSERT INTO `kode_unit_kerja` (`ID_KODE_UNIT_KERJA`, `KODE_UNIT_KERJA`, `NAMA_UN
 (255, 'BEM', 'BEM'),
 (256, 'HIMAKOM', 'HIMAKOM'),
 (257, 'HMM', 'HMM'),
-(258, 'BEM', 'BEMKEMAUNPAD');
+(258, 'BEM', 'BEMKEMAUNPAD'),
+(259, 'KMDB', 'Kemendikbud'),
+(260, 'KPMT', 'Ketua Program Magister Terapan'),
+(261, NULL, NULL),
+(262, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -432,28 +439,11 @@ CREATE TABLE `nomor_surat` (
 --
 
 INSERT INTO `nomor_surat` (`ID_NOMOR_SURAT`, `ID_KODE_UNIT_KERJA`, `ID_KODE_HAL`, `ID_KODE_PERGURUAN_TINGGI`, `ID_SIFAT_NASKAH`, `NOMOR_URUT`, `TAHUN`) VALUES
-(180, 1, 2, 1, 4, 1, 2021),
-(182, 1, 2, 1, 4, 3, 2021),
-(183, 1, 13, 1, NULL, 4, 2021),
-(184, 1, NULL, 1, NULL, 5, 2021),
-(185, 1, 2, 1, 4, 6, 2021),
-(186, 1, 2, 1, 4, 7, 2021),
-(187, 1, 2, 1, 4, 8, 2021),
-(188, 1, 23, 1, NULL, 9, 2021),
-(189, 1, 2, 1, 2, 10, 2021),
-(190, 1, 16, 1, NULL, 11, 2021),
-(191, 1, 16, 1, NULL, 12, 2021),
-(192, 1, 16, 1, NULL, 13, 2021),
-(193, 1, 2, 1, 4, 14, 2021),
-(194, 1, 16, 1, NULL, 15, 2021),
-(195, 1, 3, 1, 4, 16, 2021),
-(196, 1, 2, 1, 4, 17, 2021),
-(197, 1, 3, 1, NULL, 18, 2021),
-(198, 1, NULL, 1, NULL, 19, 2021),
-(199, 1, 4, 1, 4, 20, 2021),
-(200, 1, 6, 1, NULL, 21, 2021),
-(201, 1, 5, 1, 2, 22, 2021),
-(202, 1, NULL, 1, NULL, 23, 2021);
+(219, 1, 2, 1, 2, 1, 2021),
+(220, 1, 2, 1, 4, 2, 2021),
+(221, 1, 3, 1, 4, 3, 2021),
+(222, 1, NULL, 1, NULL, 4, 2021),
+(223, 1, 13, 1, NULL, 5, 2021);
 
 -- --------------------------------------------------------
 
@@ -515,42 +505,18 @@ CREATE TABLE `pencatatan` (
 --
 
 INSERT INTO `pencatatan` (`ID_PENCATATAN`, `ID_PENGGUNA`, `ID_JENIS_SURAT`, `ID_DERAJAT_SURAT`, `KODE_ARSIP_KOM`, `KODE_ARSIP_HLM`, `KODE_ARSIP_MANUAL`, `NAMA_FILE_SURAT`, `NAMA_FILE_LAMPIRAN`, `PERIHAL`, `TGL_SURAT`, `PENANDATANGAN`, `KOMENTAR_SURAT`) VALUES
-(1241, 2, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', 'B_3_PL1.R3_KM.00.01_2021', NULL, 'oio', '2021-10-05', 'Bambang W', NULL),
-(1243, 2, 23, 3, 'MK12', '12', 'TUAK.00.00-0001', '4_PL1.R3_KM.01.03_2021', NULL, 'undangan zoom', '2021-10-05', 'Harita', NULL),
-(1244, 2, 12, 3, 'MK12', '12', 'TUAK.00.00-0001', 'B_6_PL.1_KM.00.01_2021', NULL, 'asd', '2021-10-05', 'Ihksan', NULL),
-(1245, 2, 12, 1, 'TUKAKCIA', '12', 'TUAK.00.00-0001', 'B_7_PL1.R3_KM.00.01_2021', NULL, 'asd', '2021-10-06', 'Bambang W', NULL),
-(1246, 2, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'baru', '2021-10-05', 'Bambang W', NULL),
-(1247, 2, 12, 3, 'TUKAKCIA', '123333', 'TUAK.00.00-0001', 'SR_7_PL1.R3_KM.00.02_2021', NULL, 'qwerty', '2021-10-05', 'Bambang', NULL),
-(1248, 2, 17, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', '7_PL1.R3_KM.00.02_2021', NULL, 'qwerty', '2021-10-06', 'Bambang W', NULL),
-(1249, 2, 9, 3, 'MK12', '12', 'TUAK.00.00-0001', 'B_7_PL1.R3_KM.00.01_2021', NULL, 'popi', '2021-10-05', 'Bambang W', NULL),
-(1250, 2, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', 'B_8_PL1.R3_KM.00.01_2021', NULL, 'undangan zoom', '2021-10-06', 'Harita', NULL),
-(1251, 2, 21, 3, 'MK12', '12', 'TUAK.00.00-0001', '9_PL1.R3_KM.06.00_2021', NULL, 'undangan zoom meet', '2021-10-05', 'Harita', NULL),
-(1252, 2, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'undangan room meeting', '2021-10-06', 'Bambang W', NULL),
-(1253, 2, 12, 1, 'MK12', '12', 'TUAK.00.00-0001', NULL, NULL, 'surat undangan rapat', '2021-10-06', 'Bambang W', NULL),
-(1254, 2, 12, 3, 'asd', 'asd', 'asd', NULL, NULL, 'asd', '2021-10-14', 'asd', NULL),
-(1255, 2, 12, 3, 'qwe', 'qwe', 'qwe', NULL, NULL, 'qwe', '2021-10-14', 'qwe', NULL),
-(1256, 2, 13, 3, 'asd', 'asd', 'asd', NULL, NULL, 'qqq', '2021-10-14', 'asd', NULL),
-(1257, 2, 22, 3, 'asd', 'asd', 'asd', NULL, NULL, 'eee', '2021-10-07', 'qwe', NULL),
-(1258, 2, 13, 3, 'asd', 'asd', 'qwe', NULL, NULL, 'qqqw', '2021-09-30', 'asd', NULL),
-(1259, 2, 10, 3, 'asd', 'asd', 'asd', NULL, NULL, 'qqqwe', '2021-10-15', 'qwe', NULL),
-(1260, 2, 13, 3, 'asd', 'asd', 'asd', NULL, NULL, 'qqqqqq', '2021-10-15', 'asd', NULL),
-(1261, 5, 9, 3, 'TUKAKCIA', '123333', 'TUAK.00.00-0001', NULL, NULL, 'a', '2021-10-14', 'q', NULL),
-(1262, 5, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'qwe', '2021-10-14', 'Ihksan', NULL),
-(1263, 5, 23, 3, 'MK12', '123333', 'TUAK.00.00-0001', NULL, NULL, 'qwe', '2021-10-14', 'Ihksan', NULL),
-(1264, 5, 7, 3, 'MK12', '123333', 'TUAK.00.00-0001', NULL, NULL, 'qqweqwe', '2021-10-14', 'Bambang W', NULL),
-(1265, 5, 11, 1, 'MK12', '12', 'TUAK.00.00-0001', NULL, NULL, 'aasd', '2021-10-07', 'Bambang W', NULL),
-(1266, 5, 16, 3, 'MK12', '123333', '1', NULL, NULL, 'aaasd', '2021-10-08', 'Ihksan', NULL),
-(1267, 5, 11, 3, 'MK12', '123333', 'TUAK.00.00-0001', NULL, NULL, 'qwerty', '2021-10-22', 'Ihksan', NULL),
-(1268, 5, 4, 3, 'MK12', '12', 'TUAK.00.00-0001', NULL, NULL, 'qqwe', '2021-10-15', 'Ihksan', NULL),
-(1269, 5, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'pop', '2021-10-15', 'Ihksanasd', NULL),
-(1270, 5, 12, 3, 'TUKAKCIA', '12333312', 'TUAK.00.00-0001', NULL, NULL, 'opopop', '2021-10-07', 'Bambang W', NULL),
-(1271, 5, 12, 1, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'oioioioio', '2021-10-15', 'Bambang W', NULL),
-(1272, 5, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'yuyu', '2021-10-15', 'Bambang W', NULL),
-(1273, 5, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'qwer', '2021-10-10', 'Bambang W', NULL),
-(1274, 5, 2, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'asdqwe', '2021-10-15', 'Bambang', NULL),
-(1275, 5, 12, 1, 'TUKAKCIA', '123333', 'TUAK.00.00-0001', NULL, NULL, 'yui', '2021-10-08', 'Bambang', NULL),
-(1276, 5, 12, 3, 'TUKAKCIA', '12333312', 'TUAK.00.00-0001', NULL, NULL, 'yui', '2021-10-15', 'Harita', NULL),
-(1277, 5, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'yuiii', '2021-10-15', 'Ihksan', NULL);
+(1292, 9, 12, 3, 'MK12', '12', 'TUAK.00.00-0001', 'B_1_PL1.R3_KM.00.01_2021', NULL, 'popop', '2021-11-24', 'Bambang W', NULL),
+(1293, 9, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'qwe', '2021-11-24', 'Bambang W', NULL),
+(1296, 9, 12, 3, 'TUKAKCIA', '123333', 'TUAK.00.00-0001', 'B_1_PL1.R3_KM.00.01_2021', NULL, 'qwerty', '2021-11-17', 'Bambang W', NULL),
+(1298, 11, 23, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', NULL, NULL, 'qwert', '2021-11-28', 'Bambang W', NULL),
+(1300, 11, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', 'R_1_PL1.R3_KM.00.01_2021', NULL, 'Surat jadwal PKP 2 PKM Polban 2021', '2021-11-13', 'Harita', NULL),
+(1301, 11, 12, 3, 'TUKAKCIA', '12', 'TUAK.00.00-0001', 'B_2_PL1.R3_KM.00.01_2021', NULL, 'Pengumuman PKM AI dan GT', '2021-11-28', 'Ratna', NULL),
+(1302, 11, 11, 3, 'TUKAKCIA', '123333', 'TUAK.00.00-0001', 'B_4220_PL1_KM.11.00_2021', NULL, 'Undangan Pembagian Ijazah', '2021-10-08', 'Prof Dr Ir Noor', NULL),
+(1303, 11, 2, 3, 'TUKAKCIA', '123334', 'TUAK.00.00-0005', '0936_D3_KM.05.02_2021', NULL, 'Sosialisasi Program P2MD Mahasiswa Vokasi', '2021-04-16', 'Beny bandanadjaja', NULL),
+(1304, 11, 11, 3, 'TUKAKCIA2', '12333312', 'TUAK.00.00-0007', 'B_59_PL1.R18.3_PB.01.04_2021', NULL, 'Pelatihan Access Engineering', '2021-09-21', 'Erlin Arvelina', NULL),
+(1305, 11, 9, 3, 'TUKAKCIA', '12333312', 'TUAK.00.00-0001', 'B_3_PL1.R3_KM.00.02_2021', NULL, 'Pengumuman Lolos PIM PKM Polban', '2021-12-05', 'Harita', NULL),
+(1306, 11, 4, 3, 'TUKAKCIA', '123333', 'TUAK.00.00-0001', 'Nomor 4 Tahun 2021', NULL, 'Tata Tertib Wisuda', '2021-12-05', 'Harita', NULL),
+(1307, 11, 21, 3, 'TUKAKCIA2', '12333312', 'TUAK.00.00-00012', '5_PL1.R3_KM.01.03_2021', NULL, 'Permohonan survey lapangan', '2021-12-05', 'Harita', NULL);
 
 -- --------------------------------------------------------
 
@@ -565,17 +531,22 @@ CREATE TABLE `pengguna` (
   `NAMA` varchar(30) DEFAULT NULL,
   `ROLE` char(1) DEFAULT NULL,
   `NIP` char(18) DEFAULT NULL,
-  `JABATAN` varchar(50) DEFAULT NULL
+  `JABATAN` varchar(50) DEFAULT NULL,
+  `IS_DELETE` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pengguna`
 --
 
-INSERT INTO `pengguna` (`ID_PENGGUNA`, `USERNAME`, `PASSWORD`, `NAMA`, `ROLE`, `NIP`, `JABATAN`) VALUES
-(1, 'admin', '$2y$10$xbLRhBbKVurD.6OqyJ7Tgez/pVTPmPL8PSfW/adw7Bkx/6AmdD966', 'admin', '1', NULL, NULL),
-(2, 'satria', '$2y$10$INBzE/iLei0KlUYD660VLerwsGF7IqODI8p5nbtGBux2HWCQz/5Rm', 'Satria Nata', '2', '1815110479', 'Staf arsip 2'),
-(5, 'Harita', '$2y$10$a4brC6tCkZqJfgPNk1Vve.huy4wHvmQs9uwFD/TEqnDWfGvPrHNLC', 'Harita', '3', '000000000', 'Wakil Direktur 3');
+INSERT INTO `pengguna` (`ID_PENGGUNA`, `USERNAME`, `PASSWORD`, `NAMA`, `ROLE`, `NIP`, `JABATAN`, `IS_DELETE`) VALUES
+(1, 'admin', '$2y$10$xbLRhBbKVurD.6OqyJ7Tgez/pVTPmPL8PSfW/adw7Bkx/6AmdD966', 'admin', '1', NULL, NULL, 0),
+(2, 'satria', '$2y$10$INBzE/iLei0KlUYD660VLerwsGF7IqODI8p5nbtGBux2HWCQz/5Rm', 'Satria Nata', '2', '1815110479', 'Staf arsip 2', 0),
+(5, 'Harita', '$2y$10$a4brC6tCkZqJfgPNk1Vve.huy4wHvmQs9uwFD/TEqnDWfGvPrHNLC', 'Harita', '3', '000000000', 'Wakil Direktur 3', 0),
+(6, 'ihksan', '$2y$10$erOXrrWxCPzy2XvizGwJ5urOHwULtGiHos3JfLMk2FpMAGGgiKzyC', 'ihksan', '2', '1815110478', 'Staf arsip', 0),
+(9, 'ihksanss', '$2y$10$7/8E19gD/cpr7DvkQ0.ezOaBKl.uuu6YX8h7mHuAm4VWC6slJtHKq', 'ihksanss', '2', '18151104782', 'Staf arsip', 1),
+(10, 'admin3', '$2y$10$cjzUNHztwYst3RjEPcgvdOMvMOWRcRKpoBz727.6ansrCUgxMBMN.', 'asd', '1', '1815110478', 'PD39', 0),
+(11, 'sofwan', '$2y$10$MNqlu/D4OXYNWcA1uyWMTuFLn0R3GQR2ZLd99fFlo7vvw1FiGA37G', 'sofwan', '2', '1815110478', 'Staf arsip', 0);
 
 -- --------------------------------------------------------
 
@@ -592,6 +563,15 @@ CREATE TABLE `pengingat` (
   `DESKRIPSI` varchar(255) DEFAULT NULL,
   `JENIS_PENGINGAT` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengingat`
+--
+
+INSERT INTO `pengingat` (`ID_PENGINGAT`, `ID_PENGGUNA`, `ID_PENCATATAN`, `WAKTU_PENGINGAT`, `STATUS`, `DESKRIPSI`, `JENIS_PENGINGAT`) VALUES
+(22, 11, 1298, '2021-11-28 00:00:00', 1, 'daftar mhs', '1'),
+(24, 11, 1300, '2021-11-28 00:00:00', 1, 'daftar mhs', '2'),
+(25, 11, 1304, '2021-12-15 00:00:00', 0, 'Menindaklanjuti surat', NULL);
 
 -- --------------------------------------------------------
 
@@ -617,15 +597,30 @@ CREATE TABLE `personal_access_tokens` (
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
 (50, 'App\\Models\\User', 2, 'token-auth', '348edfb1c92f1bb1c2ac296c5d6a264184aea833edf8d7aed248917479938f77', '[\"*\"]', '2021-10-04 05:49:46', '2021-10-02 06:46:12', '2021-10-04 05:49:46'),
-(51, 'App\\Models\\User', 2, 'token-auth', '1a6d656491fc06639954a0002f202638cf35e554cb5cadc13e7703132820e506', '[\"*\"]', '2021-10-15 07:17:15', '2021-10-02 07:19:06', '2021-10-15 07:17:15'),
+(51, 'App\\Models\\User', 2, 'token-auth', '1a6d656491fc06639954a0002f202638cf35e554cb5cadc13e7703132820e506', '[\"*\"]', '2021-10-30 06:53:45', '2021-10-02 07:19:06', '2021-10-30 06:53:45'),
 (52, 'App\\Models\\User', 2, 'token-auth', '24e47eaa47e2f948f4a9e8411633ebd788fa371fa32e03a64c55fea7178b61ac', '[\"*\"]', '2021-10-02 08:39:37', '2021-10-02 07:51:33', '2021-10-02 08:39:37'),
 (53, 'App\\Models\\User', 2, 'token-auth', '715a64efe5ce15a3477efa405abda35d96caec69c6c27228c7503c9da806e294', '[\"*\"]', '2021-10-04 04:26:51', '2021-10-03 06:03:25', '2021-10-04 04:26:51'),
 (62, 'App\\Models\\User', 5, 'token-auth', '0ae1f732372003ad187b619cf06cdf579cd7854ded349027197ef528febbec9d', '[\"*\"]', '2021-10-06 06:54:19', '2021-10-06 06:49:37', '2021-10-06 06:54:19'),
 (64, 'App\\Models\\User', 5, 'token-auth', '59ac9425a1ed82f90465479d7ffe74caa431004160c648bfca541836941b6a87', '[\"*\"]', '2021-10-14 06:24:58', '2021-10-06 06:54:54', '2021-10-14 06:24:58'),
 (66, 'App\\Models\\User', 2, 'token-auth', '76f3e24c0afc09c8b9217ae972853e27bfa2a49adeca08ed462919e4bc7b22a0', '[\"*\"]', '2021-10-15 06:52:50', '2021-10-15 06:51:49', '2021-10-15 06:52:50'),
 (68, 'App\\Models\\User', 5, 'token-auth', 'c04df9133105872dac8f3f7addb428365788a36971d50d4d84301d9a012b5946', '[\"*\"]', '2021-10-16 02:02:28', '2021-10-15 06:55:23', '2021-10-16 02:02:28'),
-(69, 'App\\Models\\User', 5, 'token-auth', '75f2c55da4d6c9489dda7aa7b7aaa5b20b52175e365317e3aade6460e2cf5163', '[\"*\"]', '2021-10-20 06:26:47', '2021-10-16 02:03:55', '2021-10-20 06:26:47'),
-(70, 'App\\Models\\User', 2, 'token-auth', '1919e41a1b178c5957c73a7d90e27281eb45fc4ccc1bdef5290313ff970b9395', '[\"*\"]', '2021-10-20 05:31:29', '2021-10-20 05:30:55', '2021-10-20 05:31:29');
+(70, 'App\\Models\\User', 2, 'token-auth', '1919e41a1b178c5957c73a7d90e27281eb45fc4ccc1bdef5290313ff970b9395', '[\"*\"]', '2021-11-21 06:35:37', '2021-10-20 05:30:55', '2021-11-21 06:35:37'),
+(71, 'App\\Models\\User', 5, 'token-auth', '16d90ef2a18d95f52615a700270b10dafac2964344f790ee371c293e6d885ed8', '[\"*\"]', '2021-10-28 06:28:32', '2021-10-28 06:25:27', '2021-10-28 06:28:32'),
+(73, 'App\\Models\\User', 2, 'token-auth', '617500765a740732f4564f83498d88a05fbaec4db9f49defdf9c27ae94d307ed', '[\"*\"]', '2021-10-30 06:50:42', '2021-10-28 08:29:02', '2021-10-30 06:50:42'),
+(74, 'App\\Models\\User', 2, 'token-auth', '60e958888ca1f035da9246106eecee8eabf68688f831992b3cb93e0d09286a57', '[\"*\"]', '2021-11-21 00:07:24', '2021-11-21 00:06:11', '2021-11-21 00:07:24'),
+(75, 'App\\Models\\User', 2, 'token-auth', '8f2bf058894bb36e95653ada7dfa411ce9faa825870b8cc5b9c1c834ffd3414f', '[\"*\"]', '2021-11-21 05:11:48', '2021-11-21 00:22:05', '2021-11-21 05:11:48'),
+(76, 'App\\Models\\User', 2, 'token-auth', '2558bc4b82e02f87200ea375c0b8522b9c36aa13fad033265ba9b9e2e2f8fe8c', '[\"*\"]', NULL, '2021-11-21 00:22:21', '2021-11-21 00:22:21'),
+(78, 'App\\Models\\User', 1, 'token-auth', '69f196f31ec0f52dc728c4f652f51b32255eb44d7814c58b901690c015437c7c', '[\"*\"]', '2021-11-21 01:32:54', '2021-11-21 01:32:06', '2021-11-21 01:32:54'),
+(79, 'App\\Models\\User', 1, 'token-auth', '7dc175146fc4f7de6587e065160f5d56efdf442e0fb755375e756e8dd344857d', '[\"*\"]', '2021-11-21 01:39:24', '2021-11-21 01:32:56', '2021-11-21 01:39:24'),
+(82, 'App\\Models\\User', 1, 'token-auth', '4ad22ab9db69fabc920f9c4a9539fee7f473b38f4eeb7e57ce77aeabfa0f69b0', '[\"*\"]', '2021-11-21 01:47:33', '2021-11-21 01:45:25', '2021-11-21 01:47:33'),
+(84, 'App\\Models\\User', 1, 'token-auth', '5259d7db3af185ea285422bc61c654457448788b094f364a845b0610fc3e3fe9', '[\"*\"]', '2021-11-21 01:52:22', '2021-11-21 01:50:18', '2021-11-21 01:52:22'),
+(86, 'App\\Models\\User', 1, 'token-auth', '9e5fab1a57124c4c683089ad87f4659accdd30f83ebdd0524412fd33cf06dd87', '[\"*\"]', '2021-11-21 04:50:18', '2021-11-21 04:48:01', '2021-11-21 04:50:18'),
+(93, 'App\\Models\\User', 5, 'token-auth', '467c42bda9c27ddd3468b81d0ab8e553524d2b037b9fc35e03a9155a8b17e41a', '[\"*\"]', '2021-11-21 06:36:51', '2021-11-21 06:32:05', '2021-11-21 06:36:51'),
+(96, 'App\\Models\\User', 9, 'token-auth', '105f923ddd28f8334ec66a782fb0b7de2cb5fa50c66ef9a264365838d98a9897', '[\"*\"]', '2021-11-23 07:29:06', '2021-11-23 07:26:49', '2021-11-23 07:29:06'),
+(98, 'App\\Models\\User', 1, 'token-auth', '6a8a25fc683bd1f33a61074f64e101ba0733bcd5af1e6cf80c36539b55b6a50a', '[\"*\"]', '2021-12-04 20:18:51', '2021-11-24 05:33:49', '2021-12-04 20:18:51'),
+(113, 'App\\Models\\User', 11, 'token-auth', 'ea78d6e00b8e2c8eff1c8bfcac54b84a78c8ffb605075e7b1cae50a8f4a44b2f', '[\"*\"]', '2021-12-04 19:47:12', '2021-11-28 04:45:16', '2021-12-04 19:47:12'),
+(116, 'App\\Models\\User', 2, 'token-auth', '382d637f71ade98b1d87166c5a0d5c81ca345a53355d10e68868d13d10e7acc2', '[\"*\"]', '2021-12-04 20:07:25', '2021-12-04 19:54:22', '2021-12-04 20:07:25'),
+(118, 'App\\Models\\User', 11, 'token-auth', 'a708918e00e3444214eff0027d7574d8382ae8125092e5de5eb8e67cd0c67049', '[\"*\"]', '2021-12-05 00:19:36', '2021-12-04 20:41:19', '2021-12-05 00:19:36');
 
 -- --------------------------------------------------------
 
@@ -635,11 +630,34 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 
 CREATE TABLE `riwayat_aktivitas` (
   `ID_RIWAYAT_ALTIVITAS` int(11) NOT NULL,
-  `ID_PENGGUNA` int(10) UNSIGNED NOT NULL,
-  `ID_PENCATATAN` int(11) NOT NULL,
   `WAKTU` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `DESKRIPSI` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `riwayat_aktivitas`
+--
+
+INSERT INTO `riwayat_aktivitas` (`ID_RIWAYAT_ALTIVITAS`, `WAKTU`, `DESKRIPSI`) VALUES
+(1, '2021-11-28 02:29:18', 'Surat Masuk dengan nomor: B/1/PL1.KO/AK.00.00/2020 telah terhapus'),
+(2, '2021-11-28 02:30:20', 'Surat Masuk dengan nomor: B/1/PL1.KO/AK.00.00/2020 dikirim oleh Ihksan telah di catat'),
+(3, '2021-11-28 02:32:03', 'Surat Keluar dengan nomor: B/1/PL1.R3/KM.00.02/2021 telah di catat'),
+(4, '2021-11-28 02:32:46', 'Surat Keluar dengan nomor: B/1/PL1.R3/KM.00.02/2021 telah terhapus'),
+(5, '2021-11-28 02:42:16', 'Surat Keluar dengan nomor: R/1/PL1.R3/KM.00.01/2021 telah di catat'),
+(6, '2021-11-28 07:20:54', 'Surat Keluar dengan nomor: B/2/PL1.R3/KM.00.01/2021 telah di catat'),
+(7, '2021-12-04 19:36:28', 'Surat Masuk dengan nomor: B/4220/PL1/KM.11.00/2021 dikirim oleh Ujang Raharja telah di catat'),
+(8, '2021-12-04 19:42:28', 'Surat Masuk dengan nomor: 0936/D3/KM.05.02/2021 dikirim oleh Jajang Lukmana telah di catat'),
+(9, '2021-12-04 19:47:04', 'Surat Masuk dengan nomor: B/59/PL1.R18.3/PB.01.04/2021 dikirim oleh Ihksan telah di catat'),
+(10, '2021-12-04 20:18:51', 'Disposisi dengan nomor agenda: 4 telah di catat'),
+(11, '2021-12-04 20:42:03', 'Disposisi dengan nomor agenda: 3 telah di catat'),
+(12, '2021-12-04 20:45:04', 'Disposisi dengan nomor agenda: 3 telah di catat'),
+(13, '2021-12-04 20:48:21', 'Disposisi dengan nomor agenda: 2 telah di catat'),
+(14, '2021-12-04 20:50:33', 'Disposisi dengan nomor agenda: 4 telah di catat'),
+(15, '2021-12-04 20:59:02', 'Disposisi dengan nomor agenda: 4 telah di catat'),
+(16, '2021-12-04 21:16:44', 'Disposisi dengan nomor agenda: 2 telah di catat'),
+(17, '2021-12-05 00:31:31', 'Surat Keluar dengan nomor: B/3/PL1.R3/KM.00.02/2021 telah di catat'),
+(18, '2021-12-05 00:39:15', 'Surat Keluar dengan nomor: Nomor 4 Tahun 2021 telah di catat'),
+(19, '2021-12-05 00:41:06', 'Surat Keluar dengan nomor: 5/PL1.R3/KM.01.03/2021 telah di catat');
 
 -- --------------------------------------------------------
 
@@ -661,19 +679,11 @@ CREATE TABLE `surat_keluar` (
 --
 
 INSERT INTO `surat_keluar` (`ID_PENGGUNA`, `ID_PENCATATAN`, `ID_NOMOR_SURAT`, `ID_PEMOHON`, `TGL_KIRIM`, `NOMOR_SURAT`) VALUES
-(2, 1241, 182, 12, '2021-10-05', 'B/3/PL1.R3/KM.00.01/2021'),
-(2, 1243, 184, 4, '2021-10-05', '4/PL1.R3/KM.01.03/2021'),
-(2, 1244, 185, 15, '2021-10-05', 'B/6/PL.1/KM.00.01/2021'),
-(2, 1249, 186, 16, '2021-10-05', 'B/7/PL1.R3/KM.00.01/2021'),
-(2, 1250, 187, 17, '2021-10-06', 'B/8/PL1.R3/KM.00.01/2021'),
-(2, 1251, 188, 10, '2021-10-05', '9/PL1.R3/KM.06.00/2021'),
-(5, 1262, 196, 1, '2021-10-14', 'B/17/PL1.R3/KM.00.01/2021'),
-(5, 1263, 197, 1, '2021-10-14', '18/PL1.R3/KM.00.02/2021'),
-(5, 1264, 198, 1, '2021-10-14', 'Nomor 19 Tahun 2021'),
-(5, 1265, 199, 1, '2021-10-15', 'B/20/PL1.R3/KM.00.03/2021'),
-(5, 1266, 200, 2, '2021-10-16', '21/PL1.R3/KM.00.05/2021'),
-(5, 1267, 201, 2, '2021-10-22', 'R/22/PL1.R3/KM.00.04/2021'),
-(5, 1268, 202, 3, '2021-10-15', 'Nomor 23 Tahun 2021');
+(11, 1300, 219, 4, '2021-11-21', 'R/1/PL1.R3/KM.00.01/2021'),
+(11, 1301, 220, 1, '2021-11-28', 'B/2/PL1.R3/KM.00.01/2021'),
+(11, 1305, 221, 4, '2021-12-05', 'B/3/PL1.R3/KM.00.02/2021'),
+(11, 1306, 222, 1, '2021-12-05', 'Nomor 4 Tahun 2021'),
+(11, 1307, 223, 6, '2021-12-05', '5/PL1.R3/KM.01.03/2021');
 
 -- --------------------------------------------------------
 
@@ -697,18 +707,10 @@ CREATE TABLE `surat_masuk` (
 --
 
 INSERT INTO `surat_masuk` (`ID_PENGGUNA`, `ID_PENCATATAN`, `ID_KODE_UNIT_KERJA`, `ID_SIFAT_NASKAH`, `NOMOR_SURAT`, `NAMA_PENGIRIM`, `TGL_DITERIMA`, `NOMOR_AGENDA`) VALUES
-(2, 1253, 1, 4, 'B/1/PL1.KO/AK.00.00/2020', 'Ihksan', '2021-10-06', 1),
-(2, 1254, 1, 4, 'asd', 'asd', '2021-10-14', 2),
-(2, 1255, 1, 4, 'qwe', 'asd', '2021-10-14', 3),
-(5, 1269, 13, 4, 'B/1/PL1.KO/AK.00.00/2090', 'Ujang Raharja', '2021-10-15', 4),
-(5, 1270, 7, 4, 'B/1/PL1.KO/AK.00.00/2099', 'LIAQW', '2021-10-08', 5),
-(5, 1271, 6, 4, 'B/1/PL1.KO/AK.00.00/2089', 'LIA', '2021-10-15', 6),
-(5, 1272, 11, 4, 'B/1/PL1.KO/AK.00.00/2087', 'Ihksan', '2021-10-15', 7),
-(5, 1273, 12, 4, 'B/1/PL1.KO/AK.00.00/2032', 'LIAQW', '2021-10-10', 8),
-(5, 1274, 5, 2, 'B/1/PL1.KO/AK.00.00/2031', 'Ujang Raharja', '2021-10-15', 9),
-(5, 1275, 5, 1, 'B/1/PL1.KO/AK.00.00/2067', 'Ujang Raharja', '2021-10-08', 10),
-(5, 1276, 6, 4, 'B/1/PL1.KO/AK.00.00/2027', 'Ujang Raharja', '2021-10-15', 11),
-(5, 1277, 5, 4, 'B/1/PL1.KO/AK.00.00/2055', 'Ujang Raharja', '2021-10-17', 12);
+(11, 1298, 1, 4, 'B/1/PL1.KO/AK.00.00/2020', 'Ihksan', '2021-11-28', 1),
+(11, 1302, 2, 4, 'B/4220/PL1/KM.11.00/2021', 'Ujang Raharja', '2021-12-12', 2),
+(11, 1303, 259, 4, '0936/D3/KM.05.02/2021', 'Jajang Lukmana', '2021-12-05', 3),
+(11, 1304, 9, 4, 'B/59/PL1.R18.3/PB.01.04/2021', 'Ihksan', '2021-12-05', 4);
 
 -- --------------------------------------------------------
 
@@ -726,8 +728,11 @@ CREATE TABLE `tujuan_disposisi` (
 --
 
 INSERT INTO `tujuan_disposisi` (`ID_DISPOSISI`, `ID_KODE_UNIT_KERJA`) VALUES
-(1, 1),
-(2, 1);
+(7, 2),
+(15, 1),
+(16, 1),
+(18, 2),
+(19, 1);
 
 -- --------------------------------------------------------
 
@@ -745,44 +750,21 @@ CREATE TABLE `tujuan_pencatatan` (
 --
 
 INSERT INTO `tujuan_pencatatan` (`ID_PENCATATAN`, `ID_KODE_UNIT_KERJA`) VALUES
-(1241, 1),
-(1241, 242),
-(1243, 1),
-(1244, 2),
-(1244, 4),
-(1244, 245),
-(1245, 1),
-(1246, 1),
-(1247, 1),
-(1247, 249),
-(1248, 1),
-(1249, 1),
-(1249, 2),
-(1250, 1),
-(1250, 2),
-(1250, 254),
-(1250, 255),
-(1251, 257),
-(1251, 258),
-(1253, 1),
-(1254, 1),
-(1255, 1),
-(1262, 2),
-(1263, 2),
-(1264, 2),
-(1265, 1),
-(1266, 2),
-(1267, 2),
-(1268, 2),
-(1269, 11),
-(1270, 10),
-(1271, 11),
-(1272, 10),
-(1273, 9),
-(1274, 3),
-(1275, 3),
-(1276, 7),
-(1277, 11);
+(1292, 1),
+(1293, 1),
+(1298, 1),
+(1300, 2),
+(1301, 1),
+(1301, 2),
+(1302, 1),
+(1302, 2),
+(1303, 1),
+(1303, 2),
+(1304, 1),
+(1304, 260),
+(1305, 2),
+(1306, 1),
+(1307, 1);
 
 -- --------------------------------------------------------
 
@@ -798,17 +780,21 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `delete_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `username_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', NULL, '$2y$10$zwsxDDPL6vPmoYlBEzq3du7.ujddduzn36zh29WIeYN0pCbn1YgJW', NULL, '2021-07-17 23:40:47', '2021-07-17 23:40:47'),
-(2, 'satria', 'satria', NULL, '$2y$10$wRw6SAIG7gqe4ObN.9hkbe.BO.XQQ3aBaBrCdE9PaGVfDK.1STj9W', NULL, '2021-07-17 23:40:47', '2021-08-13 07:44:47'),
-(5, 'Harita', 'Harita', NULL, '$2y$10$mZiqeZxM2RDxsK7T.R7jjuH76DOa6R7x38GE9R7OcL3KP82dFQDD.', NULL, '2021-10-06 06:49:19', '2021-10-06 06:49:19');
+INSERT INTO `users` (`id`, `name`, `username`, `username_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `delete_at`) VALUES
+(1, 'admin', 'admin', NULL, '$2y$10$zwsxDDPL6vPmoYlBEzq3du7.ujddduzn36zh29WIeYN0pCbn1YgJW', NULL, '2021-07-17 23:40:47', '2021-07-17 23:40:47', NULL),
+(2, 'satria', 'satria', NULL, '$2y$10$wRw6SAIG7gqe4ObN.9hkbe.BO.XQQ3aBaBrCdE9PaGVfDK.1STj9W', NULL, '2021-07-17 23:40:47', '2021-08-13 07:44:47', NULL),
+(5, 'Harita', 'Harita', NULL, '$2y$10$mZiqeZxM2RDxsK7T.R7jjuH76DOa6R7x38GE9R7OcL3KP82dFQDD.', NULL, '2021-10-06 06:49:19', '2021-10-06 06:49:19', NULL),
+(9, 'ihksanss', 'ihksanss', NULL, '$2y$10$pxmeY7SG.RISaWNn.twM7udqKgfDceZCM8f0lSNPV8ilvmysDoDS.', NULL, '2021-11-23 07:26:14', '2021-11-23 07:26:14', NULL),
+(10, 'asd', 'admin3', NULL, '$2y$10$WAwT9VZzF2faSawCxWozGuBCce7JAuUcmBezW549mLAxfDK4c1y8W', NULL, '2021-11-28 02:10:08', '2021-11-28 02:10:08', NULL),
+(11, 'sofwan', 'sofwan', NULL, '$2y$10$waf7M6GdFiansoTtzvIxBOAmsjUFr8og2R0A2/Pq8mT/bHEiBFcYa', NULL, '2021-11-28 02:15:32', '2021-11-28 02:17:21', NULL);
 
 --
 -- Indexes for dumped tables
@@ -918,8 +904,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indeks untuk tabel `riwayat_aktivitas`
 --
 ALTER TABLE `riwayat_aktivitas`
-  ADD PRIMARY KEY (`ID_RIWAYAT_ALTIVITAS`,`ID_PENGGUNA`,`ID_PENCATATAN`),
-  ADD KEY `FK_RIWAYAT__MENDAPATK_PENCATAT` (`ID_PENGGUNA`,`ID_PENCATATAN`);
+  ADD PRIMARY KEY (`ID_RIWAYAT_ALTIVITAS`);
 
 --
 -- Indeks untuk tabel `surat_keluar`
@@ -972,7 +957,7 @@ ALTER TABLE `derajat_surat`
 -- AUTO_INCREMENT untuk tabel `disposisi`
 --
 ALTER TABLE `disposisi`
-  MODIFY `ID_DISPOSISI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_DISPOSISI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis_surat`
@@ -1002,7 +987,7 @@ ALTER TABLE `kode_sifat_naskah`
 -- AUTO_INCREMENT untuk tabel `kode_unit_kerja`
 --
 ALTER TABLE `kode_unit_kerja`
-  MODIFY `ID_KODE_UNIT_KERJA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `ID_KODE_UNIT_KERJA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=263;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -1014,7 +999,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `nomor_surat`
 --
 ALTER TABLE `nomor_surat`
-  MODIFY `ID_NOMOR_SURAT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `ID_NOMOR_SURAT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemohon`
@@ -1026,37 +1011,37 @@ ALTER TABLE `pemohon`
 -- AUTO_INCREMENT untuk tabel `pencatatan`
 --
 ALTER TABLE `pencatatan`
-  MODIFY `ID_PENCATATAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1278;
+  MODIFY `ID_PENCATATAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1308;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_PENGGUNA` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_PENGGUNA` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengingat`
 --
 ALTER TABLE `pengingat`
-  MODIFY `ID_PENGINGAT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_PENGINGAT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT untuk tabel `riwayat_aktivitas`
 --
 ALTER TABLE `riwayat_aktivitas`
-  MODIFY `ID_RIWAYAT_ALTIVITAS` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_RIWAYAT_ALTIVITAS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -1096,12 +1081,6 @@ ALTER TABLE `pengingat`
 --
 ALTER TABLE `personal_access_tokens`
   ADD CONSTRAINT `personal_access_tokens_tokenable_id_foreign` FOREIGN KEY (`tokenable_id`) REFERENCES `users` (`id`);
-
---
--- Ketidakleluasaan untuk tabel `riwayat_aktivitas`
---
-ALTER TABLE `riwayat_aktivitas`
-  ADD CONSTRAINT `FK_RIWAYAT__MENDAPATK_PENCATAT` FOREIGN KEY (`ID_PENGGUNA`,`ID_PENCATATAN`) REFERENCES `pencatatan` (`ID_PENGGUNA`, `ID_PENCATATAN`);
 
 --
 -- Ketidakleluasaan untuk tabel `surat_keluar`

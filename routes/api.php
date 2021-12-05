@@ -57,6 +57,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     //pengingat
     Route::post('createPengingat', 'PengingatController@createPengingat');
     Route::get('allPengingatInfo', 'PengingatController@getAllPengingat');
+    Route::get('getAllPengingatSuratMasuk', 'PengingatController@getAllPengingatSuratMasuk');
+    Route::get('getAllPengingatSuratKeluar', 'PengingatController@getAllPengingatSuratKeluar');
     Route::get('getPengingat/{id}', 'PengingatController@getPengingat');
     Route::post('updatePengingat', 'PengingatController@updatePengingat');
     Route::delete('deletePengingat/{id}', 'PengingatController@deletePengingat');

@@ -318,7 +318,7 @@ class DisposisiController extends Controller
             $date = now()->toDateTimeString();
             $data = [
                     'WAKTU' => $date,
-                    'DESKRIPSI' => "Komentar telah ditambahkan pada nomor agenda:". $disposisi->NOMOR_AGENDA
+                    'DESKRIPSI' => "Komentar telah ditambahkan pada nomor agenda: ". $disposisi->NOMOR_AGENDA
             ];
             $log = Log::create($data);
             return response()->json($respon);

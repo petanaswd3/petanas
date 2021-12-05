@@ -12,6 +12,7 @@ class Log extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'ID_RIWAYAT_ALTIVITAS',
         'WAKTU',
         'DESKRIPSI'
     ];
