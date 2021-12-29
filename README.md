@@ -35,9 +35,13 @@ ___
 + Run on local server `npm run start`
 + Build project  `npm run build`
 
+3. Tailwind CSS 
++ Optimizing for Production `npx tailwindcss -o build.css --minify`
+
 **To run this application, environment required**
 + node v.14.*
 + php v.8.*
+
 
 ___
 ## Demo application:
