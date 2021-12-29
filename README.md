@@ -20,14 +20,15 @@ ___
 ___
 ## Development Scripts
 1. Laravel
-+ update composer environments
++ Update composer environments
    `composer update`
-+ run on local server `php artisan serve`
++ Run on local server `php artisan serve`
 
 2. React js
-+ instal node module environments
++ Instal node module environments
   `npm install`
-+ run on local server `npm run start`
++ Run on local server `npm run start`
+
 ::: warning
 to run this application, environment required 
 + node v.14.*
